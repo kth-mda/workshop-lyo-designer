@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oslc4j_tc:Toolchain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oslc4j_ai="http://org.eclipse.lyo/oslc4j/adaptorInterface" xmlns:oslc4j_tc="http://org.eclipse.lyo/oslc4j/toolChain">
+  <adaptorInterfaces name="Jira Adaptor" javaClassBaseNamespace="jira.rdf.example.com" javaFilesBasePath="../adaptor-jira-webapp/src/main/java/" jspFilesBasePath="../adaptor-jira-webapp/src/main/webapp/" javascriptFilesBasePath="../adaptor-jira-webapp/src/main/webapp/">
+    <serviceProviderCatalog title="Service Provider Catalog" description="Service Provider Catalog">
+      <serviceProviders title="Service Provider" description="Service Provider">
+        <services domainSpecification="//@specification/@domainSpecifications.0">
+          <basicCapabilities resourceTypes="//@specification/@domainSpecifications.0/@resources.0"/>
+        </services>
+      </serviceProviders>
+    </serviceProviderCatalog>
+    <specification/>
+    <requiredAdaptors xsi:type="oslc4j_ai:GenericRequiredAdaptor" serviceProviderCatalogURI="http://your.host.com/adaptor/services/catalog/singleton" name="GenericRequiredAdaptor"/>
+  </adaptorInterfaces>
+  <specification>
+    <domainSpecifications name="OSLC CM" namespaceURI="http://open-services.net/ns/cm#" namespacePrefix="//@specification/@domainPrefixes.0">
+      <resources name="Change Request" resourceProperties="//@specification/@domainSpecifications.1/@resourceProperties.0 //@specification/@domainSpecifications.1/@resourceProperties.2 //@specification/@domainSpecifications.1/@resourceProperties.1 //@specification/@domainSpecifications.0/@resourceProperties.0 //@specification/@domainSpecifications.1/@resourceProperties.3 //@specification/@domainSpecifications.0/@resourceProperties.1"/>
+      <resourceProperties name="creator" valueType="String"/>
+      <resourceProperties name="project" valueType="String"/>
+    </domainSpecifications>
+    <domainSpecifications name="Dublin Core" namespaceURI="http://purl.org/dc/terms#" namespacePrefix="//@specification/@domainPrefixes.1">
+      <resourceProperties name="identifier" valueType="String"/>
+      <resourceProperties name="description" valueType="XMLLiteral"/>
+      <resourceProperties name="title" valueType="XMLLiteral"/>
+      <resourceProperties name="created" valueType="DateTime"/>
+    </domainSpecifications>
+    <domainPrefixes name="oslc_cm"/>
+    <domainPrefixes name="dcterms"/>
+  </specification>
+</oslc4j_tc:Toolchain>
